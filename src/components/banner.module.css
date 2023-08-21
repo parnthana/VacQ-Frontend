@@ -1,0 +1,18 @@
+.banner {
+  display: flex;
+  padding: 5px;
+  margin: 0;
+  width: 100vw;
+  height: 50vh;
+  position: relative;
+  justify-content: center;
+}
+.bannerText {
+  text-align:center;
+  position: relative;
+  top: 50px;
+  z-index: 20;
+}
+.bannerText h3 {
+  padding-top: 20px;
+}
