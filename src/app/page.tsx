@@ -1,23 +1,25 @@
-import Image from "next/image";
-import styles from "./page.module.css";
 import Banner from "@/components/Banner";
-import ProductCard from "@/components/ProductCard";
+import HospitalCard from "@/components/HospitalCard";
 export default function Home() {
   return (
     <main>
       <Banner />
-      <h2 style={{ marginLeft: "50px", marginTop: "50px" }}>Our Articles</h2>
-      <div
-        style={{
-          margin: "50px",
-          display: "flex",
-          flexDirection: "row",
-          flexWrap: "wrap",
-          gap: "50px",
-          alignContent: "space-around",
-        }}
-      >
-        <ProductCard />
+      <h2 className="mt-[50px] ml-[50px] font-Montserrat font-bold text-2xl">
+        Available Hospitals
+      </h2>
+      <div className="m-[50px] flex flex-row flex-wrap gap-[50px] content-around">
+        <HospitalCard
+          hospitalName="Chulalongkorn Hospital"
+          imgSrc="/img/chula.jpeg"
+        />
+        <HospitalCard
+          hospitalName="Rajavithi Hospital"
+          imgSrc="/img/rajavithi.jpeg"
+        />
+        <HospitalCard
+          hospitalName="Thammasat University Hospital"
+          imgSrc="/img/thammasat.jpg"
+        />
       </div>
     </main>
   );
