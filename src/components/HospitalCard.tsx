@@ -1,7 +1,7 @@
 "use client";
-import Image from "next/image";
 import InteractiveCard from "@/components/InteractiveCard";
 import { Rating } from "@mui/material";
+import Image from "next/image";
 
 export default function HospitalCard({
   hospitalName,
@@ -11,8 +11,8 @@ export default function HospitalCard({
 }: {
   hospitalName: string;
   imgSrc: string;
-  onRate: Function;
-  star: number | null;
+  onRate?: Function;
+  star?: number | null;
 }) {
   return (
     <InteractiveCard contentName={hospitalName}>
@@ -27,21 +27,23 @@ export default function HospitalCard({
       <div className="w-full h-[20%] p-[10px] font-Montserrat">
         {hospitalName}
       </div>
-      <div
-        onClick={(event) => {
-          event.stopPropagation();
-        }}
-        className="w-fit"
-      >
-        <Rating
-          className="h-[10%] pl-[10px]"
-          name="simple-controlled"
-          value={star}
-          onChange={(event, newValue) => {
-            onRate(hospitalName, newValue);
+      {onRate && star ? (
+        <div
+          onClick={(event) => {
+            event.stopPropagation();
           }}
-        />
-      </div>
+          className="w-fit"
+        >
+          <Rating
+            className="h-[10%] pl-[10px]"
+            name="simple-controlled"
+            value={star}
+            onChange={(event, newValue) => {
+              onRate ? onRate(hospitalName, newValue) : null;
+            }}
+          />
+        </div>
+      ) : null}
     </InteractiveCard>
   );
 }
