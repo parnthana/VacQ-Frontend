@@ -1,4 +1,5 @@
 "use client";
+import { useSession } from "next-auth/react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
@@ -12,8 +13,9 @@ export default function Banner() {
   ];
   const [index, setIndex] = useState(0);
   const router = useRouter();
+  const { data: session } = useSession();
   return (
-    <div className="h-[20%] w-full flex flex-row bg-slate-100 p-10">
+    <div className="h-[20%] w-full flex flex-row bg-slate-100 p-10 relative">
       <div
         className="w-1/2 flex items-center justify-center"
         onClick={() => setIndex(index + 1)}
@@ -33,6 +35,15 @@ export default function Banner() {
         <h3 className="mt-[30px] text-lg">
           Protect yourself and others around you by taking the vaccine today..
         </h3>
+        {session ? (
+          <div
+            className={
+              "z-30 absolute top-5 right-10 font-semibold text-cyan-800 text-xl"
+            }
+          >
+            Hello {session.user?.name}
+          </div>
+        ) : null}
         <button
           className={`bg-sky-blue text-white font-semibold py-4 px-4 m-10 rounded z-30 hover:bg-cyan-600`}
           onClick={(event) => {
