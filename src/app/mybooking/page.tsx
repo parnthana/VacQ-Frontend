@@ -5,7 +5,9 @@ import { useAppSelector, AppDispatch } from "@/redux/store";
 import { useDispatch } from "react-redux";
 
 export default function MyBooking() {
-  const bookingItem = useAppSelector((state) => state.bookSlice.bookingItem);
+  const bookingItem = useAppSelector(
+    (state) => state.reduxPersistedReducer.bookingItem,
+  );
   const dispatch = useDispatch<AppDispatch>();
 
   return (
