@@ -45,6 +45,7 @@ export default function Banner() {
           </div>
         ) : null}
         <button
+          id="banner-button"
           className={`bg-sky-blue text-white font-semibold py-4 px-4 m-10 rounded z-30 hover:bg-cyan-600`}
           onClick={(event) => {
             event.stopPropagation();
