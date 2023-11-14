@@ -16,6 +16,7 @@ export default function PromoteCard() {
       <div className={`m-5 w-full flex flex-col font-Montserrat`}>
         Get Your Vaccine Today
         <button
+          id="video-action-button"
           className="w-fit bg-sky-blue text-white font-semibold py-2 px-2 mt-4 rounded z-30 hover:bg-cyan-600 "
           onClick={() => {
             setIsPlaying(!isPlaying);
